@@ -70,7 +70,7 @@
         <main class="flex-1 p-6 sm:p-8 md:p-12">
             <div id="narration" class="content-section active">
                 <h2 class="text-3xl font-bold text-teal-800 mb-6">Part 1: Comprehensive Guide to Narration</h2>
-
+                
                 <div class="bg-white p-6 rounded-lg shadow-sm mb-8">
                     <h3 class="text-2xl font-semibold text-stone-700 mb-4">Introduction</h3>
                     <p class="mb-4">Narration is the act of reporting the words of a speaker. There are two main ways to do this:</p>
@@ -96,9 +96,9 @@
                             <p>Words denoting nearness in time or place are changed to words denoting distance.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+            <div id="narration" class="content-section">
+                <h2 class="text-3xl font-bold text-teal-800 mb-6">Part 1: Comprehensive Guide to Narration</h2>
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
                     <h3 class="text-2xl font-semibold text-stone-700 mb-4">Narration for Different Sentence Types</h3>
                     <div id="narration-tabs" class="border-b border-stone-200 mb-6">
                         <nav class="flex flex-wrap space-x-4 -mb-px">
@@ -116,11 +116,11 @@
             </div>
 
             <div id="verbs" class="content-section">
-                <h2 class="text-3xl font-bold text-teal-800 mb-6">Part 2: Parts of Speech: Verbs Explained</h2>
-                <div class="bg-white p-6 rounded-lg shadow-sm mb-8">
-                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">What is a Verb?</h3>
-                    <p>A verb is a word that describes an action, an occurrence, or a state of being. It is the most important part of a sentence; in fact, you cannot have a complete sentence without a verb.</p>
-                </div>
+                <h2 class="text-3xl font-bold text-teal-800 mb-6">Part 2: Verbs Explained</h2>
+                <div class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm prose-lg max-w-none">
+                    <p>Verbs are the heart of a sentence; they express an action or a state of being. Understanding the different types of verbs is crucial for building clear and effective sentences. Verbs can be categorized in several ways based on their function and form.</p>
+                    
+                    <h4 class="text-xl font-semibold text-stone-700 mt-6">1. Functional Categories</h4>
 
                 <div id="verb-accordion" class="space-y-4">
                     <!-- Accordion items will be injected by JS -->
@@ -129,7 +129,7 @@
 
             <div id="essay" class="content-section">
                 <h2 class="text-3xl font-bold text-teal-800 mb-6">Part 3: Essay - The Importance of Sports and Games</h2>
-                <div class="bg-white p-8 rounded-lg shadow-sm prose-lg max-w-none">
+                <div class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm prose-lg max-w-none">
                     <p>Sports and games are an essential part of a healthy and well-rounded life. They are more than just a form of entertainment; they are a vital activity for developing both the body and the mind. Engaging in regular physical activity builds physical fitness, strengthens character, and teaches the importance of working together, making it crucial for holistic personal growth.</p>
                     <p>On a physical level, sports are fundamental for maintaining health. Regular participation strengthens the heart, builds strong muscles, and helps manage weight, preventing many lifestyle-related illnesses. Beyond the body, sports significantly boost mental well-being. The focus required during a game sharpens concentration, while the physical exertion acts as a powerful stress reliever. Facing challenges on the field builds mental resilience, equipping individuals with a stronger, more positive mindset to handle life's difficulties.</p>
                     <p>Furthermore, sports serve as an excellent training ground for character and social skills. They instill invaluable life lessons like discipline, determination, and how to handle both victory and defeat gracefully. Team sports, in particular, foster a spirit of cooperation by teaching effective communication, trust, and leadership. Players learn to work together towards a common goal, developing skills that are highly transferable to academic and professional life.</p>
@@ -148,7 +148,7 @@
 
             <div id="paragraph" class="content-section">
                 <h2 class="text-3xl font-bold text-teal-800 mb-6">Part 4: Paragraph - A Dream</h2>
-                <div class="bg-white p-8 rounded-lg shadow-sm prose-lg max-w-none">
+                <div class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm prose-lg max-w-none">
                     <p>Last night, I dreamt I was soaring through a twilight sky, not with wings, but simply by willing myself to rise. Below me, the city was a quiet patchwork of deep blues and soft, glowing orange lights. The air was cool and felt like silk against my skin. There was no sound except for a gentle, humming melody that seemed to come from the stars themselves. I flew over rooftops and between crystalline skyscrapers that shimmered with captured moonlight. A profound sense of peace and absolute freedom filled me, a feeling so vivid and real that when I woke up, for a fleeting moment, I was surprised to find myself in my bed and not still drifting among the constellations.</p>
                 </div>
             </div>
@@ -279,7 +279,7 @@
                     </div>
                 </div>
             `).join('');
-
+            
             verbAccordionContainer.addEventListener('click', (e) => {
                 const header = e.target.closest('.accordion-header');
                 if (header) {
@@ -335,6 +335,7 @@
     </script>
 </body>
 </html>
+
 
 
 
