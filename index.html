@@ -96,8 +96,8 @@
                             <p>Words denoting nearness in time or place are changed to words denoting distance.</p>
                         </div>
                     </div>
-            <div id="narration" class="content-section">
-                <h2 class="text-3xl font-bold text-teal-800 mb-6">Part 1: Comprehensive Guide to Narration</h2>
+                </div>
+                
                 <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
                     <h3 class="text-2xl font-semibold text-stone-700 mb-4">Narration for Different Sentence Types</h3>
                     <div id="narration-tabs" class="border-b border-stone-200 mb-6">
@@ -120,10 +120,9 @@
                 <div class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm prose-lg max-w-none">
                     <p>Verbs are the heart of a sentence; they express an action or a state of being. Understanding the different types of verbs is crucial for building clear and effective sentences. Verbs can be categorized in several ways based on their function and form.</p>
                     
-                    <h4 class="text-xl font-semibold text-stone-700 mt-6">1. Functional Categories</h4>
-
-                <div id="verb-accordion" class="space-y-4">
-                    <!-- Accordion items will be injected by JS -->
+                    <div id="verb-accordion" class="space-y-4 mt-6">
+                        <!-- Accordion items will be injected by JS -->
+                    </div>
                 </div>
             </div>
 
@@ -228,76 +227,73 @@
             };
 
             const verbData = [
-                {
-                    title: '1. Action Verbs',
-                    content: 'Action verbs express an action, either physical (run, jump) or mental (think, believe).<br><strong>Transitive:</strong> Transfer action to an object (e.g., The student <strong>wrote</strong> a <em>letter</em>).<br><strong>Intransitive:</strong> Do not need an object (e.g., The baby <strong>cried</strong>).'
+                 {
+                    title: '1. Functional Categories',
+                    content: '<p>These categories describe the job a verb does in a sentence.</p><ul class="list-disc list-inside ml-4 space-y-2"><li><strong>Action Verbs:</strong> Express physical or mental action. Can be <em>Transitive</em> (takes an object, e.g., "She reads the <strong>book</strong>") or <em>Intransitive</em> (no object, e.g., "He <strong>runs</strong>").</li><li><strong>Linking Verbs:</strong> Connect the subject to a word that describes it (e.g., "She <strong>is</strong> a doctor"). They act like an equals sign.</li><li><strong>Helping (Auxiliary) Verbs:</strong> Help the main verb to show tense or mood (e.g., "They <strong>have finished</strong>").</li></ul>'
                 },
                 {
-                    title: '2. Linking Verbs',
-                    content: 'Linking verbs do not show action. They connect the subject to a noun or adjective that describes it. The most common are forms of "to be" (am, is, are, was, were).<br><strong>Example:</strong> The sky <strong>is</strong> blue.'
-                },
-                {
-                    title: '3. Helping (Auxiliary) Verbs',
-                    content: 'Helping verbs work with a main verb to express tense, mood, or voice. Common helping verbs include is, am, are, have, has, will, can, may.<br><strong>Example:</strong> She <strong>is going</strong> to the store.'
-                },
-                {
-                    title: '4. Regular and Irregular Verbs',
-                    content: 'This classification is based on how a verb forms its past tense.<br><strong>Regular:</strong> Add -d or -ed (e.g., talk -> talked).<br><strong>Irregular:</strong> Form past tenses in other ways (e.g., go -> went).'
-                },
-                {
-                    title: '5. Finite and Non-Finite Verbs',
-                    content: '<strong>Finite:</strong> The main verb of a clause that shows tense (e.g., "She <strong>walks</strong>").<br><strong>Non-Finite:</strong> Do not show tense and cannot be the main verb. They act as nouns, adjectives, or adverbs (e.g., gerunds, infinitives, participles).'
+                    title: '2. Formal Categories',
+                    content: '<p>These categories describe how a verb is formed or used grammatically.</p><ul class="list-disc list-inside ml-4 space-y-2"><li><strong>Regular & Irregular Verbs:</strong> Based on how they form the past tense. Regular verbs add "-ed" (walk -> walked), while irregular verbs change form (go -> went).</li><li><strong>Finite & Non-Finite Verbs:</strong> Finite verbs show tense and agree with a subject (e.g., "She <strong>walks</strong>"). Non-finite verbs do not show tense and act as other parts of speech, like infinitives (to walk), gerunds (walking), or participles (walked).</li></ul>'
                 }
             ];
 
             // Initialize Narration Tabs
             function renderNarrationContent(target) {
-                narrationContentContainer.innerHTML = `
-                    <h4 class="text-xl font-semibold text-teal-700 mb-4">${narrationData[target].title}</h4>
-                    <div>${narrationData[target].content}</div>
-                `;
+                if (narrationContentContainer && narrationData[target]) {
+                    narrationContentContainer.innerHTML = `
+                        <h4 class="text-xl font-semibold text-teal-700 mb-4">${narrationData[target].title}</h4>
+                        <div>${narrationData[target].content}</div>
+                    `;
+                }
             }
             renderNarrationContent('assertive');
 
-            narrationTabsContainer.addEventListener('click', (e) => {
-                if (e.target.classList.contains('tab-button')) {
-                    narrationTabsContainer.querySelector('.active').classList.remove('active');
-                    e.target.classList.add('active');
-                    renderNarrationContent(e.target.dataset.target);
-                }
-            });
+            if (narrationTabsContainer) {
+                narrationTabsContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('tab-button')) {
+                        narrationTabsContainer.querySelector('.active').classList.remove('active');
+                        e.target.classList.add('active');
+                        renderNarrationContent(e.target.dataset.target);
+                    }
+                });
+            }
 
             // Initialize Verb Accordion
-            verbAccordionContainer.innerHTML = verbData.map((item, index) => `
-                <div class="border border-stone-200 rounded-lg">
-                    <button class="accordion-header w-full text-left p-4 bg-stone-100 hover:bg-stone-200 rounded-t-lg font-semibold flex justify-between items-center">
-                        ${item.title}
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 border-t border-stone-200">${item.content}</div>
+            if (verbAccordionContainer) {
+                verbAccordionContainer.innerHTML = verbData.map((item, index) => `
+                    <div class="border border-stone-200 rounded-lg">
+                        <button class="accordion-header w-full text-left p-4 bg-stone-100 hover:bg-stone-200 rounded-t-lg font-semibold flex justify-between items-center">
+                            <span>${item.title}</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 border-t border-stone-200">${item.content}</div>
+                        </div>
                     </div>
-                </div>
-            `).join('');
-            
-            verbAccordionContainer.addEventListener('click', (e) => {
-                const header = e.target.closest('.accordion-header');
-                if (header) {
-                    const content = header.nextElementSibling;
-                    const icon = header.querySelector('i');
-                    header.parentElement.classList.toggle('bg-white');
+                `).join('');
+                
+                verbAccordionContainer.addEventListener('click', (e) => {
+                    const header = e.target.closest('.accordion-header');
+                    if (header) {
+                        const content = header.nextElementSibling;
+                        const icon = header.querySelector('i');
 
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                        icon.classList.remove('rotate-180');
-                    } else {
-                        document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = null);
-                        document.querySelectorAll('.accordion-header i').forEach(el => el.classList.remove('rotate-180'));
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        icon.classList.add('rotate-180');
+                        const isOpening = !content.style.maxHeight;
+
+                        // Close all others
+                        document.querySelectorAll('.accordion-content').forEach(el => {
+                            el.style.maxHeight = null;
+                            el.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                        });
+
+                        // Open the clicked one if it wasn't already open
+                        if (isOpening) {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            icon.classList.add('rotate-180');
+                        }
                     }
-                }
-            });
+                });
+            }
 
             // Main Navigation Logic
             function switchContent(hash) {
@@ -314,7 +310,6 @@
                 const link = e.target.closest('.nav-link');
                 if (link) {
                     const hash = link.hash;
-                    // Using history.pushState to change URL without reloading
                     if (window.location.hash !== hash) {
                         history.pushState(null, null, hash);
                     }
@@ -322,7 +317,6 @@
                 }
             });
 
-            // Handle browser back/forward and initial load
             window.addEventListener('popstate', () => {
                 const hash = window.location.hash || '#narration';
                 switchContent(hash);
@@ -335,8 +329,4 @@
     </script>
 </body>
 </html>
-
-
-
-
 
